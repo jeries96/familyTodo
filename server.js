@@ -37,6 +37,7 @@ const Task = mongoose.model("Task", {
 
 
     app.post('/register', function (req, res)  {
+        console.log("cats")
         const { body } = req;
         console.log(body)
         const { email,firstname,lastname,img,password } = body;
@@ -47,7 +48,7 @@ const Task = mongoose.model("Task", {
                  result = true
         }
             if(result){
-              let answer=user.password
+              let answer='meaw'
               res.send({answer:answer})
             }
             else{

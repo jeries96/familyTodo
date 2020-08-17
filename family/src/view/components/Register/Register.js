@@ -6,8 +6,8 @@ function Login(props) {
 
     return (
         <div className='root'>
-            <form className='form'>
-            <h2 class="active"> Register </h2>
+            <form className='form' onSubmit={handleSubmit}>
+            <h2 className="active"> Register </h2>
 
                 <input type='text' placeholder='Email' name='userEmail'></input>
                 <br />
@@ -19,13 +19,14 @@ function Login(props) {
                 <br />
                 <input type='text' placeholder='Password' name='password'></input>
                 <br />
-                <input type='submit' onClick={handleSubmit} value="Register" id='button'></input>
+                <input type='submit' value="Register" id='button'></input>
             </form>
         </div>
     );
 
     function handleSubmit(e) {
         e.preventDefault()
+        console.log(e.target.elements)
         const email = e.target.elements.userEmail.value;
         const firstname = e.target.elements.firstName.value;
         const lastname = e.target.elements.lastName.value;
