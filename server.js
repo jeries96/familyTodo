@@ -44,39 +44,30 @@ app.post('/register', function (req, res) {
 
     console.log(lastname, password)
 
-    let result = false
-    ToDoUser.findOne({ lastName: lastname, password: password }, function (err, docs) {
+    ToDoUser.findOne({ userEmail: email,lastName: lastname, password: password }, function (err, docs) {
         if (docs != null) {
             let answer = 'already exist'
             res.send({ answer: answer })
         }
         else {
-            const newUser = new ToDoUser({ email: email, firstname: firstname, lastName: lastname, img: img, password: password })
+            const newUser = new ToDoUser({ userEmail: email, firstName: firstname, lastName: lastname, imgUrl: img, password: password })
             newUser.save()
             res.send({ answer: "Regsiter Completed" })
         }
 
     })
-    /*if (result) {
-        let answer = 'meaw'
-        res.send({ answer: answer })
-    }
-    else {
-        const newUser = new ToDoUser({ email: email, firstname: firstname, lastname: lastname, img: img, password: password })
-        newUser.save()
-        res.send({ answer: "Regsiter Completed" })
-    }*/
 
 })
 
 
 app.post('/login-user', function (req, res) {
-    const { lastname, password } = req.body;
+    const {email, lastname, password } = req.body;
     console.log(name, password)
     let validAdmin = false;
-    ToDoUser.findOne({ lastname: lastname, password: password }, function (err, docs) {
+    ToDoUser.findOne({ userEmail:email , lastName: lastname, password: password }, function (err, docs) {
         if (docs != null) {
             let validAdmin = true;
+            console.log('Found')
             res.send({ validAdmin: validAdmin, id: docs._id })
         }
         else {

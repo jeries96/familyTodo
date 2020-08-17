@@ -26,6 +26,9 @@ html {
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    position: absolute;
+    left: 50px;
+    
   }
   input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
     background-color: #39ACE7;
