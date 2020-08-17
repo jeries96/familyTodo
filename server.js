@@ -3,14 +3,14 @@ const app=express()
 
 app.use(express.static('public'));
 
-const ToDoUser = Mongoose.model("ToDoUser", {
+const ToDoUser = mongoose.model("ToDoUser", {
     userEmail: String,
     firstName: String,
     lastName: String,
     imgUrl: String,
     password: String
 })
-const Task = Mongoose.mode("Task", {
+const Task = mongoose.mode("Task", {
     user: {
         userEmail: String,
         firstName: String,
