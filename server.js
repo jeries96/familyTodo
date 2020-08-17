@@ -1,7 +1,19 @@
 const express=require('express')
 const app=express()
+var bodyParser = require('body-parser');
 
+app.use(bodyParser.json());       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+    extended: true
+}));
+
+const mongoose = require('mongoose');
 app.use(express.static('public'));
+const url = "mongodb+srv://jeries:g1g2g3g4g5@cluster0.sb6dm.mongodb.net/test";
+
+
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 const ToDoUser = mongoose.model("ToDoUser", {
     userEmail: String,
@@ -10,7 +22,7 @@ const ToDoUser = mongoose.model("ToDoUser", {
     imgUrl: String,
     password: String
 })
-const Task = mongoose.mode("Task", {
+const Task = mongoose.model("Task", {
     user: {
         userEmail: String,
         firstName: String,
