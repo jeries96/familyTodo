@@ -1,5 +1,5 @@
-const express=require('express')
-const app=express()
+const express = require('express')
+const app = express()
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
@@ -36,51 +36,59 @@ const Task = mongoose.model("Task", {
 })
 
 
-    app.post('/register', function (req, res)  {
-        console.log("cats")
-        const { body } = req;
-        console.log(body)
-        const { email,firstname,lastname,img,password } = body;
-      
-        let result = false
-        ToDoUser.findOne( {lastname:lastname , password:password } , function(err, docs) {
-            if ( docs==null ) {
-                 result = true
+app.post('/register', function (req, res) {
+    console.log("cats")
+    const { body } = req;
+    console.log(body)
+    const { email, firstname, lastname, img, password } = body;
+
+    console.log(lastname, password)
+
+    let result = false
+    ToDoUser.findOne({ lastName: lastname, password: password }, function (err, docs) {
+        if (docs != null) {
+            let answer = 'already exist'
+            res.send({ answer: answer })
         }
-            if(result){
-              let answer='meaw'
-              res.send({answer:answer})
-            }
-            else{
-               const newUser= new ToDoUser ({ email: email, firstname:firstname,lastname:lastname ,img:img,password: password })
-               newUser.save()
-               res.send({ answer: "Regsiter Completed" })
-            }
-        
-      })
+        else {
+            const newUser = new ToDoUser({ email: email, firstname: firstname, lastName: lastname, img: img, password: password })
+            newUser.save()
+            res.send({ answer: "Regsiter Completed" })
+        }
+
+    })
+    /*if (result) {
+        let answer = 'meaw'
+        res.send({ answer: answer })
     }
-    )
+    else {
+        const newUser = new ToDoUser({ email: email, firstname: firstname, lastname: lastname, img: img, password: password })
+        newUser.save()
+        res.send({ answer: "Regsiter Completed" })
+    }*/
+
+})
 
 
 app.post('/login-user', function (req, res) {
     const { lastname, password } = req.body;
-    console.log(name,password)
-    let validAdmin=false;
-    ToDoUser.findOne( {lastname:lastname , password:password } , function(err, docs) {
-        if ( docs!=null ) {
-            let validAdmin=true;
-            res.send( {validAdmin:validAdmin , id:docs._id})
-        } 
+    console.log(name, password)
+    let validAdmin = false;
+    ToDoUser.findOne({ lastname: lastname, password: password }, function (err, docs) {
+        if (docs != null) {
+            let validAdmin = true;
+            res.send({ validAdmin: validAdmin, id: docs._id })
+        }
         else {
-            res.send({validAdmin:validAdmin})
+            res.send({ validAdmin: validAdmin })
         }
 
     })
 });
 
 
-app.get('/tasks' ,function (req, res) {
-    Task.find({} , function(err, doc) {
+app.get('/tasks', function (req, res) {
+    Task.find({}, function (err, doc) {
         res.send(doc)
     })
 })
@@ -98,8 +106,8 @@ app.get('/tasks' ,function (req, res) {
 
 
 
-const port=process.env.PORT || 3000
+const port = process.env.PORT || 3000
 
-app.listen(port , ()=>{
+app.listen(port, () => {
     console.log(` port is listen to ${port}  `)
 })
