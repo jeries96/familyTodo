@@ -40,12 +40,12 @@ const Task = mongoose.model("Task", {
 app.post('/register', function (req, res) {
     console.log("cats")
     const { body } = req;
-    console.log(body)
+    // console.log(body)
     const { email, firstname, lastname, img, password } = body;
 
     console.log(lastname, password)
 
-    User.findOne({ userEmail: email,lastName: lastname, password: password }, function (err, docs) {
+    User.findOne({ userEmail: email, lastName: lastname, password: password }, function (err, docs) {
         if (docs != null) {
             let answer = 'already exist'
             res.send({ answer: answer })
@@ -62,10 +62,10 @@ app.post('/register', function (req, res) {
 
 
 app.post('/login-user', function (req, res) {
-    const {email, lastname, password } = req.body;
+    const { email, lastname, password } = req.body;
     console.log(lastname, password)
     let validAdmin = false;
-    User.findOne({ userEmail:email , lastName: lastname }, function (err, docs) {
+    User.findOne({ userEmail: email, lastName: lastname }, function (err, docs) {
         if (docs != null) {
             let validAdmin = true;
             console.log('Found')
@@ -79,20 +79,20 @@ app.post('/login-user', function (req, res) {
 });
 
 
-app.get('/ToDo', async (req, res) => {
+app.post('/ToDo', async (req, res) => {
     // const {lastname}=req.body;
     const lastName = 'biadsy'
     const tasks = await Task.aggregate(
         [{
             $match: {
-                "user.lastName":lastName
+                "user.lastName": lastName
             }
-            
-           },
+
+        },
         {
             $group: {
-                
-                _id:'$user.firstName',
+
+                _id: '$user.firstName',
                 tasks: {
                     $push: "$$ROOT",
                 }
@@ -100,7 +100,9 @@ app.get('/ToDo', async (req, res) => {
         },
         ]
     )
+    console.log("yousef")
     console.log(tasks);
+    res.send(tasks)
 })
 
 
