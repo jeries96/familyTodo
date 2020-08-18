@@ -79,8 +79,28 @@ app.post('/login-user', function (req, res) {
 });
 
 
-app.get('/ToDo', function (req, res) {
-    
+app.get('/ToDo', async (req, res) => {
+    // const {lastname}=req.body;
+    const lastName = 'biadsy'
+    const tasks = await Task.aggregate(
+        [{
+            $match: {
+                "user.lastName":lastName
+            }
+            
+           },
+        {
+            $group: {
+                
+                _id:'$user.firstName',
+                tasks: {
+                    $push: "$$ROOT",
+                }
+            }
+        },
+        ]
+    )
+    console.log(tasks);
 })
 
 
