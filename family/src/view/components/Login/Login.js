@@ -53,8 +53,8 @@ export function Login(props) {
                 
     
                 if (validAdmin == true) {
-                    // window.location.replace('/mainPage.html')
-                    console.log('Arrived')
+                 /*<Link to="/toDoPage"/>  */        
+                  console.log('Arrived')
                 }
                 if (validAdmin == false) {
                     // document.getElementById('root').innerText = `Wrong username/password`
