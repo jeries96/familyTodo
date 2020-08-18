@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import './Register.css';
 
-function Login(props) {
+function Register(props) {
 
     return (
         <div className='root'>
@@ -51,5 +51,5 @@ function Login(props) {
 
 
 
-export default Login;
+export default Register;
 

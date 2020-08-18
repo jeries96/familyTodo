@@ -15,8 +15,8 @@ function App() {
   return (
     <Router>
     <div>
-      {/* <Login></Login> */}
-      <Register />
+      <Login></Login>
+      {/* <Register /> */}
     </div>
 
     {/* <Switch>

@@ -62,9 +62,9 @@ app.post('/register', function (req, res) {
 
 app.post('/login-user', function (req, res) {
     const {email, lastname, password } = req.body;
-    console.log(name, password)
+    console.log(lastname, password)
     let validAdmin = false;
-    ToDoUser.findOne({ userEmail:email , lastName: lastname, password: password }, function (err, docs) {
+    ToDoUser.findOne({ userEmail:email , lastName: lastname }, function (err, docs) {
         if (docs != null) {
             let validAdmin = true;
             console.log('Found')
