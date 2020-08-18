@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useHistory
+} from "react-router-dom";
 import './Task.css';
 import checked from './checked.svg'
 import Delete from './delete.svg';
 
 
 function Task(props) {
+    let history = useHistory()
     const { elem } = props
     console.log(elem)
     return (
@@ -37,6 +44,8 @@ function Task(props) {
 
         </div>
     );
+
+   
 
 
 }

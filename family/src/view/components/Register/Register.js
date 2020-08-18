@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useHistory
+} from "react-router-dom";
 import './Register.css';
 
 function Register(props) {
-
+    let history = useHistory()
     return (
         <div className='root'>
             <form className='form' onSubmit={handleSubmit}>
@@ -45,6 +51,7 @@ function Register(props) {
             })
 
         console.log("cats are here")
+        history.push('/')
     }
 
 }
