@@ -15,20 +15,19 @@ function App() {
   return (
     <Router>
     <div>
-      <Login></Login>
+     {/* /* <Login></Login> */}
       {/* <Register /> */}
     </div>
 
-    {/* <Switch>
-          <Route path="/Login">
-          <Login/>
-          </Route>
-          <Route path="/Register">
+    { <Switch>
+      <Route path="/Register">
             <Register />
           </Route>
+          <Route path="/">
+          <Login/>
+          </Route>
           
-         
-    </Switch> */}
+    </Switch> }
     </Router>
   )}
 

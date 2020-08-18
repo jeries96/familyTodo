@@ -23,7 +23,7 @@ export function Login(props) {
 
 
               <div id="formFooter">
-              <a className="underlineHover" href="#"><Link to="/Register">Register</Link></a>
+              <Link to="/Register"><a className="underlineHover" href="#">Register</a></Link>
               </div>
 
             </div>
