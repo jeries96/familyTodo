@@ -3,12 +3,13 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Link,
+    useHistory
   } from "react-router-dom";
 import './Login.css';
 
 export function Login(props) {
-
+    let history=useHistory()
     return (
         
         <div className="wrapper fadeInDown">
@@ -53,7 +54,7 @@ export function Login(props) {
                 
     
                 if (validAdmin == true) {
-                 /*<Link to="/toDoPage"/>  */        
+                 history.pushState('/todo')       
                   console.log('Arrived')
                 }
                 if (validAdmin == false) {

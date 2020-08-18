@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import './App.css';
 import Register from './view/components/Register/Register'
 import {Login} from './view/components/Login/Login'
+import ToDo from './view/components/ToDo/ToDo'
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,10 +18,14 @@ function App() {
     <div>
      {/* /* <Login></Login> */}
       {/* <Register /> */}
+    <ToDo/>
     </div>
 
     { <Switch>
-      <Route path="/Register">
+      <Route path="/todo">
+            <ToDo />
+          </Route>
+         <Route path="/Register">
             <Register />
           </Route>
           <Route path="/">

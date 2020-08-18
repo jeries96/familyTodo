@@ -9,13 +9,14 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 const mongoose = require('mongoose');
 app.use(express.static('public'));
-const url = "mongodb+srv://jeries:g1g2g3g4g5@cluster0.sb6dm.mongodb.net/test";
+const url = "mongodb+srv://nimer:N1N1N1N1@cluster0.tejcy.mongodb.net/toDo";
+
 
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-const ToDoUser = mongoose.model("ToDoUser", {
+const User = mongoose.model("User", {
     userEmail: String,
     firstName: String,
     lastName: String,
@@ -44,13 +45,13 @@ app.post('/register', function (req, res) {
 
     console.log(lastname, password)
 
-    ToDoUser.findOne({ userEmail: email,lastName: lastname, password: password }, function (err, docs) {
+    User.findOne({ userEmail: email,lastName: lastname, password: password }, function (err, docs) {
         if (docs != null) {
             let answer = 'already exist'
             res.send({ answer: answer })
         }
         else {
-            const newUser = new ToDoUser({ userEmail: email, firstName: firstname, lastName: lastname, imgUrl: img, password: password })
+            const newUser = new User({ userEmail: email, firstName: firstname, lastName: lastname, imgUrl: img, password: password })
             newUser.save()
             res.send({ answer: "Regsiter Completed" })
         }
@@ -64,7 +65,7 @@ app.post('/login-user', function (req, res) {
     const {email, lastname, password } = req.body;
     console.log(lastname, password)
     let validAdmin = false;
-    ToDoUser.findOne({ userEmail:email , lastName: lastname }, function (err, docs) {
+    User.findOne({ userEmail:email , lastName: lastname }, function (err, docs) {
         if (docs != null) {
             let validAdmin = true;
             console.log('Found')
@@ -78,11 +79,10 @@ app.post('/login-user', function (req, res) {
 });
 
 
-app.get('/tasks', function (req, res) {
-    Task.find({}, function (err, doc) {
-        res.send(doc)
-    })
+app.get('/ToDo', function (req, res) {
+    
 })
+
 
 
 
