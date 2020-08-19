@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-
+import Register from './view/components/Register/Register'
+import { Login } from './view/components/Login/Login'
+import ToDo from './view/components/ToDo/ToDo'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 function App() {
+
+  /*const [registerInfo,setRegisterInfo] = useState([])*/
+
   return (
-    <div className="main">
-    <div className="Login">
-      <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet"></link>
-      <header className="Login-header">
-        Login
-      </header>
-      <form className="login-form">
-        <input id="field" className="lastName" placeholder="Last Name" type="text"></input>
-        <input id="field" className="password" placeholder="Password" type="password"></input>
-        <button id="field" onclick="Tasks()">Login</button>
-        <button id="field" onclick="Register()">Register</button>
-      </form>
-    </div>
-    </div>
-  );
+    <Router>
+      <div>
+        {/* /* <Login></Login> */}
+        {/* <Register /> */}
+        {/* <ToDo/> */}
+      </div>
+
+      {<Switch>
+        <Route path="/todo">
+          <ToDo />
+        </Route>
+        <Route path="/Register">
+          <Register />
+        </Route>
+        <Route path="/">
+          <Login />
+        </Route>
+
+      </Switch>}
+    </Router>
+  )
 }
+
+
 
 export default App;
