@@ -61,7 +61,7 @@ h2 {
 }
 
 #formFooter {
-  margin-top: 30px;
+  margin-top: 60px;
   background-color: #f6f6f6;
   border-top: 1px solid #dce8f1;
   padding: 25px;
@@ -89,7 +89,7 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset]  {
+input[type=button]  {
   background-color: #56baed;
   border: none;
   color: white;
@@ -109,9 +109,16 @@ input[type=button], input[type=submit], input[type=reset]  {
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  
+  
+}
+
+#hey{
   position: relative;
-  top:30px;
+  top: 30px;
+  left: 50px;
   margin-right: 100px;
+  
 }
 
 input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
@@ -344,4 +351,7 @@ hr{
 
 
 
-
+#signIn{
+  position: relative;
+  left: 40% ;
+}
