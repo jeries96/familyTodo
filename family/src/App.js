@@ -22,6 +22,9 @@ function App() {
       </div>
 
       {<Switch>
+        <Route path="/oneTask">
+          <OneTask />
+        </Route>
         <Route path="/todo">
           <ToDo />
         </Route>
