@@ -30,7 +30,7 @@ function ToDo(props) {
         <div id="wrapper">
             <div className="header">
 
-                <a className="logo">ToDo</a>
+                <div className="logo">ToDo</div>
         </div>
                 
                 <div id="tasks">

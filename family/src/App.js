@@ -3,6 +3,7 @@ import './App.css';
 import Register from './view/components/Register/Register'
 import { Login } from './view/components/Login/Login'
 import ToDo from './view/components/ToDo/ToDo'
+import OneTask from '../src/view/components/Task/Task'
 import {
   BrowserRouter as Router,
   Switch,
