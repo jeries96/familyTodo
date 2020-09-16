@@ -9,7 +9,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link, Redirect
 } from "react-router-dom";
 function App() {
   const history = createBrowserHistory();
@@ -22,16 +22,17 @@ function App() {
 
       {<Switch>
 
-        <Route path="/oneTask" history={history}>
+        <Route path="/oneTask" >
           <OneTask />
         </Route>
-        <Route path="/todo" history={history}>
+        <Redirect from="/Register" to="/Register" />
+        <Route path="/todo">
           <ToDo />
         </Route>
-        <Route path="/Register" history={history}>
+        <Route path="/Register" >
           <Register />
         </Route>
-        <Route path="/" history={history}>
+        <Route path="/" >
           <Login />
         </Route>
 
