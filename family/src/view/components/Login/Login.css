@@ -352,6 +352,7 @@ hr{
 
 
 #signIn{
+  color: red;
   position: relative;
   left: 40% ;
 }
