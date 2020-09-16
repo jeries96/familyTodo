@@ -26,7 +26,7 @@ function App() {
         <Route path="/todo">
           <ToDo />
         </Route>
-        <Route path="/Register">
+        <Route path="/#/Register">
           <Register />
         </Route>
         <Route path="/">
@@ -34,7 +34,7 @@ function App() {
         </Route>
 
       </Switch>}
-      
+
     </Router>
   )
 }
