@@ -9,7 +9,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link, Redirect
+  Link, Redirect,HashRouter 
 } from "react-router-dom";
 function App() {
   const history = createBrowserHistory();
@@ -17,7 +17,7 @@ function App() {
   /*const [registerInfo,setRegisterInfo] = useState([])*/
 
   return (
-    <Router>
+    <HashRouter>
     
 
       {<Switch>
@@ -25,7 +25,6 @@ function App() {
         <Route path="/oneTask" >
           <OneTask />
         </Route>
-        <Redirect from="/Register" to="/Register" />
         <Route path="/todo">
           <ToDo />
         </Route>
@@ -38,7 +37,7 @@ function App() {
 
       </Switch>}
 
-    </Router>
+    </HashRouter>
   )
 }
 
