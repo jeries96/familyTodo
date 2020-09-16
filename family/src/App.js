@@ -16,13 +16,10 @@ function App() {
 
   return (
     <Router>
-      <div>
-        {/* /* <Login></Login> */}
-        {/* <Register /> */}
-        {/* <ToDo/> */}
-      </div>
+    
 
       {<Switch>
+
         <Route path="/oneTask">
           <OneTask />
         </Route>
@@ -37,6 +34,7 @@ function App() {
         </Route>
 
       </Switch>}
+      
     </Router>
   )
 }
