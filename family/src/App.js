@@ -4,6 +4,7 @@ import Register from './view/components/Register/Register'
 import { Login } from './view/components/Login/Login'
 import ToDo from './view/components/ToDo/ToDo'
 import OneTask from '../src/view/components/Task/Task'
+import { createBrowserHistory } from "history";
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +12,7 @@ import {
   Link
 } from "react-router-dom";
 function App() {
+  const history = createBrowserHistory();
 
   /*const [registerInfo,setRegisterInfo] = useState([])*/
 
@@ -20,16 +22,16 @@ function App() {
 
       {<Switch>
 
-        <Route path="/oneTask">
+        <Route path="/oneTask" history={history}>
           <OneTask />
         </Route>
-        <Route path="/todo">
+        <Route path="/todo" history={history}>
           <ToDo />
         </Route>
-        <Route path="/#/Register">
+        <Route path="/Register" history={history}>
           <Register />
         </Route>
-        <Route path="/">
+        <Route path="/" history={history}>
           <Login />
         </Route>
 
